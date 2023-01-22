@@ -1,2 +1,2 @@
 # react-pizza-v2
-pizzeria online store made with react, typescript, RTK
+Online-store: react18, TS, RTK
