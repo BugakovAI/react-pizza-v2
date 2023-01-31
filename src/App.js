@@ -6,7 +6,7 @@ import Header from './components/Header';
 import Home from './pages/Home.jsx';
 import NotFound from './pages/NotFound';
 import Cart from './pages/Cart';
-import { Counter } from './components/Counter/Counter';
+// import { Counter } from './components/Counter/Counter';
 
 export const SearchContext = createContext('');
 
@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="wrapper">
-      <Counter />
+      {/* <Counter /> */}
       <SearchContext.Provider value={{ searchText, setSearchText }}>
         {/* <Header searchText={searchText} onChangeSearchText={(text) => setSearchText(text)} /> */}
         <Header />

@@ -7,7 +7,7 @@ import Sort from '../components/Sort';
 import Pagination from '../components/Pagination/Pagination';
 
 const Home = ({ searchText }) => {
-  const [activeCategory, setActiveCategory] = useState(0);
+  // const [activeCategory, setActiveCategory] = useState(0);
   const [activeSort, setActiveSort] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -15,27 +15,16 @@ const Home = ({ searchText }) => {
     window.scrollTo(0, 0);
   }, []);
 
-  // let currentPage;
-
   return (
     <div className="container">
       <div className="content__top">
-        <Categories
-          active={activeCategory}
-          changeCategory={(category) => setActiveCategory(category)}
-        />
-        <Sort active={activeSort} changeSort={(category) => setActiveSort(category)} />
+        <Categories />
+        <Sort />
       </div>
       <h2 className="content__title">Все пиццы</h2>
       <div className="content__items">
-        <PizzaList
-          currentPage={currentPage}
-          searchText={searchText}
-          activeCategory={activeCategory}
-          activeSort={activeSort}
-        />
+        <PizzaList currentPage={currentPage} searchText={searchText} />
       </div>
-      {/* <Paginate currentPage={currentPage} /> */}
       <Pagination onChangePage={(page) => setCurrentPage(page)} />
     </div>
   );

@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+
 import PizzaCard from './PizzaCard/PizzaCard';
 import PizzaCardSkeleton from './PizzaCard/PizzaCardSkeleton';
-// import pizzasArr from '../assets/pizzas.json';
 
-function PizzaList({ currentPage, searchText, activeCategory, activeSort }) {
+function PizzaList({ currentPage, searchText }) {
   const [isLoading, setIsLoading] = useState(true);
   const [items, setItems] = useState([]);
+  const activeCategory = useSelector((state) => state.filter.activeCategory);
+  const activeSort = useSelector((state) => state.filter.activeSort);
 
   const sortType =
     activeSort === 0 ? 'rating' : activeSort === 1 ? 'price' : activeSort === 2 ? 'title' : '';
@@ -24,15 +27,11 @@ function PizzaList({ currentPage, searchText, activeCategory, activeSort }) {
           console.log(itemsFromResponse);
         }, 0);
       });
-    // window.scrollTo(0, 0);
   }, [activeCategory, sortType, currentPage]);
 
   const searchedPizzas = items.filter((el) => {
     return el.title.toLowerCase().includes(searchText.toLowerCase());
   });
-
-  // console.log('Поиск:');
-  // console.log(searchedPizzas);
 
   return (
     <>
