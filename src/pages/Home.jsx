@@ -1,15 +1,18 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Categories from '../components/Categories';
 import PizzaList from '../components/PizzaList';
 import Sort from '../components/Sort';
 import Pagination from '../components/Pagination/Pagination';
+import { setCurrentPage } from '../redux/slices/FilterSlice';
 
 const Home = ({ searchText }) => {
-  // const [activeCategory, setActiveCategory] = useState(0);
-  const [activeSort, setActiveSort] = useState(0);
-  const [currentPage, setCurrentPage] = useState(1);
+  // const [currentPage, setCurrentPage] = useState(1);
+  const dispatch = useDispatch();
+  const onChangePage = (pageNumber) => dispatch(setCurrentPage(pageNumber));
+  const currentPage = useSelector((state) => state.filter.currentPage);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -23,9 +26,9 @@ const Home = ({ searchText }) => {
       </div>
       <h2 className="content__title">Все пиццы</h2>
       <div className="content__items">
-        <PizzaList currentPage={currentPage} searchText={searchText} />
+        <PizzaList currentPage={currentPage} />
       </div>
-      <Pagination onChangePage={(page) => setCurrentPage(page)} />
+      <Pagination currentPage={currentPage} onChangePage={onChangePage} />
     </div>
   );
 };

@@ -2,11 +2,12 @@
     display: flex;
     justify-content: center;
     align-self: left;
+    align-items: center;
     padding: 12px 15px;
-    // width: 100%;
-    // margin: 0 100px;
+    margin: 0 20px;
 
-    min-width: 300px;
+    min-width: 250px;
+    width: 450px;
     border: solid 1px #aaaaaa;
     border-radius: 35px;
     -webkit-border-radius: 35px;
@@ -15,15 +16,19 @@
     -o-border-radius: 35px;
 
     img {
-        color: #780707;
-        size: 16px;
+        color: 780707;
+        // size: 16px;
+        width: 24px;
+        height: 24px;
+    }
 
-    }
-    input {
-        padding-left: 10px;
-        border-width: 0px;
-        width: 100%;
-        height: 100%;
-        font-size: 18px;
-    }
+
+}
+
+input {
+    padding-left: 10px;
+    border-width: 0px;
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
 }

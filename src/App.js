@@ -12,11 +12,12 @@ export const SearchContext = createContext('');
 
 function App() {
   const [searchText, setSearchText] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
   return (
     <div className="wrapper">
       {/* <Counter /> */}
-      <SearchContext.Provider value={{ searchText, setSearchText }}>
+      <SearchContext.Provider value={{ searchText, setSearchText, isLoading, setIsLoading }}>
         {/* <Header searchText={searchText} onChangeSearchText={(text) => setSearchText(text)} /> */}
         <Header />
         <div className="content">
